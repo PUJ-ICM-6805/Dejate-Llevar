@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DejateLlevar</string>
+    <string-array name="generos">
+        <item>Género</item>
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
+
 </resources>
