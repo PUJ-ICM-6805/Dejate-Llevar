@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:theme="@android:style/Theme.Translucent">
 
 
 
@@ -72,7 +73,7 @@
         android:id="@+id/imageView6"
         android:layout_width="163dp"
         android:layout_height="165dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView12"
         app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +85,7 @@
         android:layout_width="163dp"
         android:layout_height="165dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/categorialugar1_3" />
@@ -94,7 +95,7 @@
         android:layout_width="163dp"
         android:layout_height="165dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
         app:srcCompat="@drawable/categorialugar1_5" />
@@ -103,7 +104,7 @@
         android:id="@+id/imageView13"
         android:layout_width="163dp"
         android:layout_height="165dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
@@ -114,7 +115,7 @@
         android:id="@+id/imageView16"
         android:layout_width="163dp"
         android:layout_height="165dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -125,7 +126,7 @@
         android:id="@+id/imageView12"
         android:layout_width="163dp"
         android:layout_height="165dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"

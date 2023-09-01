@@ -15,6 +15,15 @@
         android:theme="@style/Theme.DejateLlevar"
         tools:targetApi="31">
         <activity
+            android:name=".perfilUsuario.Categorias4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias2Activity"
+            android:exported="false" />
+        <activity
             android:name=".Categorias1Activity"
             android:exported="false" />
         <activity

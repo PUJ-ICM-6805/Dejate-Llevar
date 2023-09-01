@@ -40,7 +40,7 @@ class RegistrarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.registro)
-
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         initComponents()
         initListeners()
 
