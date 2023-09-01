@@ -13,6 +13,7 @@ class Categorias2Activity : AppCompatActivity() {
     lateinit var arrow1ImageView: AppCompatImageView
     lateinit var arrow2ImageView: AppCompatImageView
     lateinit var arrow3ImageView: AppCompatImageView
+    lateinit var mapaicono: ImageView
 
 
 
@@ -33,7 +34,7 @@ class Categorias2Activity : AppCompatActivity() {
         arrow2ImageView = findViewById<AppCompatImageView>(R.id.arrow2)
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
-
+        mapaicono = findViewById(R.id.mapaicono)
     }
 
 
@@ -78,7 +79,16 @@ class Categorias2Activity : AppCompatActivity() {
 
         }
 
+        mapaicono.setOnClickListener{
+            // Crear un Intent para abrir la nueva actividad
 
+            val intent = Intent(this, Mapa::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+
+
+        }
     }
 
 

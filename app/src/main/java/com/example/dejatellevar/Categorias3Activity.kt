@@ -13,6 +13,7 @@ class Categorias3Activity : AppCompatActivity() {
     lateinit var arrow1ImageView: AppCompatImageView
     lateinit var arrow2ImageView: AppCompatImageView
     lateinit var arrow3ImageView: AppCompatImageView
+    lateinit var mapaicono: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.comida)
@@ -29,6 +30,7 @@ class Categorias3Activity : AppCompatActivity() {
         arrow2ImageView = findViewById<AppCompatImageView>(R.id.arrow2)
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
+        mapaicono = findViewById(R.id.mapaicono)
 
     }
 
@@ -71,6 +73,17 @@ class Categorias3Activity : AppCompatActivity() {
 
             // Iniciar la nueva actividad
             startActivity(intent)
+
+        }
+
+        mapaicono.setOnClickListener{
+            // Crear un Intent para abrir la nueva actividad
+
+            val intent = Intent(this, Mapa::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+
 
         }
 
