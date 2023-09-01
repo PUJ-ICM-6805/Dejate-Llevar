@@ -105,13 +105,14 @@
         android:id="@+id/editCalendario"
         android:layout_width="192dp"
         android:layout_height="48dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/rounded_edittext_b"
         android:hint="dia/mes/año"
+        android:inputType="text"
         android:padding="12dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintHorizontal_bias="0.662"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editApellido" />
 
@@ -187,18 +188,18 @@
 
     <ImageButton
         android:id="@+id/imageCalendario"
-        android:layout_width="68dp"
-        android:layout_height="57dp"
+        android:layout_width="56dp"
+        android:layout_height="48dp"
         android:layout_marginTop="4dp"
-        android:background="#00CC9393"
+        android:background="@drawable/calendario"
         android:contentDescription="Abrir Calendario"
         android:onClick="abrirCalendario"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editApellido"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+
         app:tint="#7246A8" />
 
 

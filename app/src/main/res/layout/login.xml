@@ -10,7 +10,7 @@
         android:layout_width="1014dp"
         android:layout_height="1014dp"
         android:layout_marginTop="-740dp"
-        android:background="@drawable/rounded_background_purple"
+        android:background="@drawable/rounded_background_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,11 +1,13 @@
 package com.example.dejatellevar
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,13 +26,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-       // initComponents()
-
-
-        //calendario vista
-        //calendario= findViewById(R.id.editCalendario)
-
+        initComponents()
+        initListeners()
     }
+
     private fun initComponents() {
         //calendario = findViewById(R.id.editCalendario)
         imageView = findViewById(R.id.imageView)
@@ -46,7 +45,31 @@ class MainActivity : AppCompatActivity() {
         textView2 = findViewById(R.id.textView2)
     }
 
+    private fun initListeners() {
+        loginButton.setOnClickListener {
+            Toast.makeText(this, ":) Ya estás en Login", Toast.LENGTH_SHORT).show()
+        }
 
+        signupButton.setOnClickListener {
+
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, RegistrarActivity::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+        }
+
+        login.setOnClickListener {
+
+            // Crear un Intent para abrir Categorias1 actividad
+            val intent = Intent(this, Categorias1Activity::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+
+        }
+
+    }
     //Calendario Instrucciones
     /*
     fun abrirCalendario(view: View) {
