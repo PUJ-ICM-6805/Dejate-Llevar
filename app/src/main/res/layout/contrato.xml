@@ -137,7 +137,7 @@
         android:layout_height="31dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/addContact"
+        android:src="@drawable/addcontact"
         app:layout_constraintEnd_toEndOf="@id/editCelular"
         app:layout_constraintTop_toTopOf="@id/editCelular" />
 

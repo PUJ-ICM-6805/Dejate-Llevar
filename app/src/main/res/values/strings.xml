@@ -5,5 +5,10 @@
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>
-
+    <array name="duracion">
+        <item>Duración 1</item>
+        <item>Duración 2</item>
+        <item>Duración 3</item>
+        <!-- Agrega más elementos de duración según sea necesario -->
+    </array>
 </resources>
