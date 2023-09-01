@@ -63,7 +63,9 @@
         app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toEndOf="@+id/searchView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/filtrar" />
+        app:srcCompat="@drawable/filtrar"
+        android:contentDescription="Filter Button" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

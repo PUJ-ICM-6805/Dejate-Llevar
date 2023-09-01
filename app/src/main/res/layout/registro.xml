@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.wear.widget.BoxInsetLayout
+        android:id="@+id/boxInsetLayout"
+        android:layout_width="1014dp"
+        android:layout_height="1014dp"
+        android:layout_marginTop="-740dp"
+        android:background="@drawable/rounded_background_purple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+    </androidx.wear.widget.BoxInsetLayout>
+
+    <ImageView
+        android:layout_width="208dp"
+        android:layout_height="212dp"
+        app:layout_constraintBottom_toBottomOf="@+id/boxInsetLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:src="@drawable/logo"
+        app:tint="#7246A8"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_background_gray"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxInsetLayout" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="#00090909"
+        android:onClick="onLoginButtonClick"
+        android:text="Login"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/signupButton"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="95dp"
+        android:layout_toEndOf="@+id/loginButton"
+        android:onClick="onSignUpButtonClick"
+        android:text="Sign Up"
+        android:textColorLink="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/TextNombre"
+        android:layout_width="263dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:paddingStart="16dp"/>
+
+    <EditText
+        android:id="@+id/editApellido"
+        android:layout_width="263dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:hint="Apellido (Opcional)"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextNombre"
+        android:paddingStart="16dp"/>
+
+
+    <EditText
+        android:id="@+id/editCalendario"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:hint="dia/mes/año"
+        android:padding="12dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editApellido" />
+
+    <Spinner
+        android:id="@+id/spinnerGenero"
+        android:layout_width="263dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:paddingLeft="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCalendario"
+        android:entries="@array/generos"/>
+
+
+    <EditText
+        android:id="@+id/editUsername"
+        android:layout_width="263dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:hint="Username or email"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerGenero"
+        android:paddingStart="16dp"/>
+
+    <EditText
+        android:id="@+id/editTPassword"
+        android:layout_width="263dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:hint="Password"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUsername"
+        android:paddingStart="16dp"/>
+
+    <Button
+        android:id="@+id/registrarse"
+        android:layout_width="204dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="7dp"
+        android:backgroundTint="#32366F"
+        android:onClick="onLoginButtonClick"
+        android:text="Registrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTPassword" />
+
+
+    <TextView
+        android:id="@+id/terminosYcondiciones"
+        android:layout_width="328dp"
+        android:layout_height="42dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="1sp"
+        android:text="Al tocar Crear cuenta o Iniciar sesión, acepta nuestros Términos. Conoce cómo tratamos tus datos en nuestra Política de Privacidad y Política de Cookies."
+        android:textColor="#828693"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrarse" />
+
+    <ImageButton
+        android:id="@+id/imageCalendario"
+        android:layout_width="68dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="4dp"
+        android:background="#00CC9393"
+        android:contentDescription="Abrir Calendario"
+        android:onClick="abrirCalendario"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editApellido"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        app:tint="#7246A8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
