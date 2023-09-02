@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@android:style/Theme.Translucent">
+
+    <ImageView
+        android:id="@+id/previousFromReserva"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/reserva" />
+
+        <TextView
+            android:id="@+id/tituloTextView"
+            android:layout_width="276dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Seleccione el lugar a explorar"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            android:textColor="@color/black"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_below="@id/tituloTextView"
+            android:background="@drawable/rounded_edittext_b"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/lupa"
+                    android:layout_gravity="center_vertical" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre Lugar"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:layout_weight="1"/>
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/microfono"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/datePickerContainer"
+            android:layout_width="316dp"
+            android:layout_height="53dp"
+            android:layout_below="@id/searchTextInputLayout"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_edittext_b"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#ECE7E6">
+
+            <ImageButton
+                android:id="@+id/btnFechaLlegada"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/calendargrey"
+                android:contentDescription="Abrir Calendario"
+                android:onClick="abrirCalendario"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"/>
+
+            <TextView
+                android:id="@+id/txtFechaLlegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="DD/MM/YYYY"
+                android:onClick="abrirCalendario"
+                android:textColor="#000000"
+                android:paddingLeft="4dp"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/btnFechaLlegada" />
+
+            <ImageButton
+                android:id="@+id/btnFechaSalida"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="20dp"
+                android:onClick="abrirCalendario"
+                android:background="@drawable/calendargrey"
+                android:layout_toEndOf="@+id/txtFechaLlegada"
+                android:layout_centerVertical="true"
+                app:tint="#7246A8" />
+
+            <TextView
+                android:id="@+id/txtFechaSalida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="4dp"
+                android:text="DD/MM/YYYY"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:layout_toEndOf="@+id/btnFechaSalida"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/adultsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/datePickerContainer"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/adultsTextView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:text="Adultos"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/flecha_left"
+                    android:id="@+id/minusAdults"
+                    android:layout_toEndOf="@+id/adultsTextView"
+                    android:layout_marginLeft="100dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/adultsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_toEndOf="@+id/minusAdults"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flecha_right"
+                    android:id="@+id/plusAdults"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/kidsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adultsContainer"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:id="@+id/kidsTextView"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:text="Niños"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flecha_left"
+                    android:id="@+id/minusKids"
+                    android:layout_toEndOf="@+id/kidsTextView"
+                    android:layout_marginLeft="100dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/kidsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_toEndOf="@+id/minusKids"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/flecha_right"
+                    android:id="@+id/plusKids"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/piePagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Déjate llevar por la aventura"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/kidsContainer"
+                android:layout_marginTop="16dp"
+                android:textColor="#777777" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/piePagina"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
+            >
+            <Button
+                android:id="@+id/buttonPagar"
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:text="Chat"
+                android:layout_marginLeft="50dp"
+                android:textColor="#FFFFFF"
+                app:boxCornerRadiusTopStart="16dp"/>
+
+            <Button
+                android:id="@+id/pagarButton"
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_toEndOf="@+id/buttonPagar"
+                android:text="Pagar"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+        </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

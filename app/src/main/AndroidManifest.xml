@@ -18,6 +18,12 @@
             android:name=".Mapa"
             android:exported="false" />
         <activity
+            android:name=".Reserva"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarTarjeta"
+            android:exported="false" />
+        <activity
             android:name=".perfilUsuario.Categorias4Activity"
             android:exported="false" />
         <activity

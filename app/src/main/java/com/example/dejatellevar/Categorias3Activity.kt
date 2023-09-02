@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.dejatellevar.perfilUsuario.Categorias4Activity
 
@@ -14,6 +15,7 @@ class Categorias3Activity : AppCompatActivity() {
     lateinit var arrow2ImageView: AppCompatImageView
     lateinit var arrow3ImageView: AppCompatImageView
     lateinit var mapaicono: ImageView
+    lateinit var calendarionavegacion: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.comida)
@@ -31,7 +33,7 @@ class Categorias3Activity : AppCompatActivity() {
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
         mapaicono = findViewById(R.id.mapaicono)
-
+        calendarionavegacion = findViewById(R.id.calendarioicono)
     }
 
 
@@ -86,7 +88,14 @@ class Categorias3Activity : AppCompatActivity() {
 
 
         }
+        calendarionavegacion.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
 
+            val intent = Intent(this, Reserva::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+        }
 
     }
 
