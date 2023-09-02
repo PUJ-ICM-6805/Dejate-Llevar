@@ -69,22 +69,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
     }
-    //Calendario Instrucciones
-    /*
-    fun abrirCalendario(view: View) {
-        val cal: Calendar = Calendar.getInstance()
-        val anio: Int = cal.get(Calendar.YEAR)
-        val mes: Int = cal.get(Calendar.MONTH)
-        val dia: Int = cal.get(Calendar.DAY_OF_MONTH)
-
-        val dpd = DatePickerDialog(this, { view, year, month, dayOfMonth ->
-            val fecha = "$dayOfMonth/$month/$year"
-            calendario.text = fecha
-        }, anio, mes, dia)
-        dpd.show()
-    }*/
-
-
 }
