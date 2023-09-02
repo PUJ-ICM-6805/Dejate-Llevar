@@ -13,10 +13,15 @@ class InicioTikTok : AppCompatActivity() {
     lateinit var contratoact: ImageView
     lateinit var historialTikTok: ImageView
     lateinit var creeps: ImageView
+    lateinit var notificacion: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_tik_tok)
+
+        initComponents()
+        initListeners()
+
     }
 
     fun initComponents(){
@@ -24,20 +29,21 @@ class InicioTikTok : AppCompatActivity() {
         contratoact = findViewById(R.id.contratos)
         historialTikTok = findViewById(R.id.historial)
         creeps = findViewById(R.id.creeps)
+        notificacion = findViewById(R.id.imageView19)
     }
 
     private fun initListeners() {
 
         contratoact.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, contratoact::class.java)
+            val intent = Intent(this, Contratoact2::class.java)
             // Iniciar la nueva actividad
             startActivity(intent)
         }
 
         historialTikTok.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, HistorialTikTok::class.java)
+            val intent = Intent(this, HistorialAyuda::class.java)
             // Iniciar la nueva actividad
             startActivity(intent)
 
@@ -46,6 +52,13 @@ class InicioTikTok : AppCompatActivity() {
         creeps.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, agregarProduct::class.java)
+            // Iniciar la nueva actividad
+            startActivity(intent)
+        }
+
+        notificacion.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+            val intent = Intent(this, notificacion ::class.java)
             // Iniciar la nueva actividad
             startActivity(intent)
         }

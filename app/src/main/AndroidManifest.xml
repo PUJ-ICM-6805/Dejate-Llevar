@@ -15,9 +15,21 @@
         android:theme="@style/Theme.DejateLlevar"
         tools:targetApi="31">
         <activity
+            android:name=".notificacion"
+            android:exported="false" />
+        <activity
+            android:name=".Contratoact2"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialAyuda"
+            android:exported="false" />
+        <activity
             android:name=".agregarProduct"
             android:exported="false" />
+        <activity android:name=".Contratoact">
 
+            <!-- Configuración de la actividad -->
+        </activity>
         <activity
             android:name=".Pagar"
             android:exported="false" />

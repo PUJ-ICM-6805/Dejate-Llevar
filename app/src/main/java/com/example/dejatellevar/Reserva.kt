@@ -14,6 +14,9 @@ class Reserva : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reserva)
+
+        initComponents()
+        initListeners()
     }
 
 
