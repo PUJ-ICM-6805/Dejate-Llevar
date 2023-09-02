@@ -14,7 +14,7 @@ class Categorias2Activity : AppCompatActivity() {
     lateinit var arrow2ImageView: AppCompatImageView
     lateinit var arrow3ImageView: AppCompatImageView
     lateinit var mapaicono: ImageView
-
+    lateinit var calendaIcono: ImageView
 
 
 
@@ -35,6 +35,8 @@ class Categorias2Activity : AppCompatActivity() {
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
         mapaicono = findViewById(R.id.mapaicono)
+        calendaIcono = findViewById(R.id.imageCalendario)
+
     }
 
 
@@ -89,6 +91,16 @@ class Categorias2Activity : AppCompatActivity() {
 
 
         }
+
+        calendaIcono.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+
+            val intent = Intent(this, Reserva::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
+        }
+
     }
 
 

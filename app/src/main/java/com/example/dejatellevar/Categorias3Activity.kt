@@ -14,6 +14,8 @@ class Categorias3Activity : AppCompatActivity() {
     lateinit var arrow2ImageView: AppCompatImageView
     lateinit var arrow3ImageView: AppCompatImageView
     lateinit var mapaicono: ImageView
+    lateinit var calendaIcono: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.comida)
@@ -31,11 +33,13 @@ class Categorias3Activity : AppCompatActivity() {
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
         mapaicono = findViewById(R.id.mapaicono)
+        calendaIcono = findViewById(R.id.calendarioicono)
 
     }
 
 
     private fun initListeners() {
+
         arrow1ImageView.setOnClickListener{
             // Crear un Intent para abrir la nueva actividad
 
@@ -85,6 +89,15 @@ class Categorias3Activity : AppCompatActivity() {
             startActivity(intent)
 
 
+        }
+
+        calendaIcono.setOnClickListener {
+            // Crear un Intent para abrir la nueva actividad
+
+            val intent = Intent(this, Reserva::class.java)
+
+            // Iniciar la nueva actividad
+            startActivity(intent)
         }
 
 

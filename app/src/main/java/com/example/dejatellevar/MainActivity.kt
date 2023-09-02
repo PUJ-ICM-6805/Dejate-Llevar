@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageView4: ImageView
     lateinit var textView: TextView
     lateinit var textView2: TextView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -68,6 +70,13 @@ class MainActivity : AppCompatActivity() {
             // Iniciar la nueva actividad
             startActivity(intent)
 
+        }
+
+        imageView4.setOnClickListener{
+
+            val intent = Intent (this, InicioTikTok::class.java)
+
+            startActivity(intent)
         }
     }
 }

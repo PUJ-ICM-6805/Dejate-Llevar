@@ -33,6 +33,7 @@ class Categorias1Activity : AppCompatActivity() {
         imageView13 = findViewById(R.id.imageView13)
         imageView16 = findViewById(R.id.imageView16)
         imageView12 = findViewById(R.id.imageView12)
+
     }
     private fun initListeners() {
         imageView6.setOnClickListener {
