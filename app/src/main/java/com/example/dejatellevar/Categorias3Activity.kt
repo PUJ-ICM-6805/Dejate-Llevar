@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.dejatellevar.perfilUsuario.Categorias4Activity
 
@@ -16,6 +17,7 @@ class Categorias3Activity : AppCompatActivity() {
     lateinit var mapaicono: ImageView
     lateinit var calendaIcono: ImageView
 
+    lateinit var calendarionavegacion: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.comida)
@@ -35,12 +37,13 @@ class Categorias3Activity : AppCompatActivity() {
         mapaicono = findViewById(R.id.mapaicono)
         calendaIcono = findViewById(R.id.calendarioicono)
 
+        calendarionavegacion = findViewById(R.id.calendarioicono)
     }
 
 
     private fun initListeners() {
 
-        arrow1ImageView.setOnClickListener{
+        arrow1ImageView.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
             val intent = Intent(this, Categorias4Activity::class.java)
@@ -50,7 +53,7 @@ class Categorias3Activity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        arrow2ImageView.setOnClickListener{
+        arrow2ImageView.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
             val intent = Intent(this, Categorias4Activity::class.java)
@@ -60,7 +63,7 @@ class Categorias3Activity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        arrow3ImageView.setOnClickListener{
+        arrow3ImageView.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
             val intent = Intent(this, Categorias4Activity::class.java)
@@ -70,7 +73,7 @@ class Categorias3Activity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        imageView7.setOnClickListener{
+        imageView7.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
             val intent = Intent(this, Categorias1Activity::class.java)
@@ -80,7 +83,7 @@ class Categorias3Activity : AppCompatActivity() {
 
         }
 
-        mapaicono.setOnClickListener{
+        mapaicono.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
             val intent = Intent(this, Mapa::class.java)
@@ -90,22 +93,20 @@ class Categorias3Activity : AppCompatActivity() {
 
 
         }
-
-        calendaIcono.setOnClickListener {
+        calendarionavegacion.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
 
-            val intent = Intent(this, Reserva::class.java)
+            calendaIcono.setOnClickListener {
+                // Crear un Intent para abrir la nueva actividad
 
-            // Iniciar la nueva actividad
-            startActivity(intent)
+                val intent = Intent(this, Reserva::class.java)
+
+                // Iniciar la nueva actividad
+                startActivity(intent)
+            }
+
+
         }
 
 
-    }
-
-
-
-
-
-
-}
+    }}

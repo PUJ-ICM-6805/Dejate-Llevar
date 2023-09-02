@@ -5,20 +5,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
-import android.widget.*
-import com.example.dejatellevar.AgregarTarjeta
-import com.example.dejatellevar.Categorias1Activity
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import java.util.Calendar
-import com.example.dejatellevar.R
 
-class Reserva : AppCompatActivity() {
+class ReservaE : AppCompatActivity() {
+
     lateinit var imageCalendario1: ImageButton
     lateinit var imageCalendario2: ImageButton
     lateinit var editCalendario1: TextView
     lateinit var editCalendario2: TextView
     lateinit var pagarButton: Button
     lateinit var previousButton: ImageView
-    lateinit var chat : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,14 +42,6 @@ class Reserva : AppCompatActivity() {
             startActivity(intent)
         }
 
-        chat.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, Chat::class.java)
-
-            // Iniciar la nueva actividad
-            startActivity(intent)
-        }
-
         imageCalendario1.setOnClickListener {
             setDate(1)
         }
@@ -64,7 +57,6 @@ class Reserva : AppCompatActivity() {
         editCalendario2 = findViewById(R.id.txtFechaSalida)
         pagarButton = findViewById(R.id.pagarButton)
         previousButton = findViewById(R.id.previousFromReserva)
-        chat = findViewById(R.id.buttonPagar)
     }
 
     private fun setDate(eventTime: Int) {

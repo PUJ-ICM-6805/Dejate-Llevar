@@ -13,7 +13,7 @@ class InicioTikTok : AppCompatActivity() {
     lateinit var contratoact: ImageView
     lateinit var historialTikTok: ImageView
     lateinit var creeps: ImageView
-    lateinit var notificacion: ImageView
+    lateinit var notifica: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class InicioTikTok : AppCompatActivity() {
         contratoact = findViewById(R.id.contratos)
         historialTikTok = findViewById(R.id.historial)
         creeps = findViewById(R.id.creeps)
-        notificacion = findViewById(R.id.imageView19)
+        notifica = findViewById(R.id.imageView19)
     }
 
     private fun initListeners() {
@@ -56,9 +56,9 @@ class InicioTikTok : AppCompatActivity() {
             startActivity(intent)
         }
 
-        notificacion.setOnClickListener {
+        notifica.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, notificacion ::class.java)
+            val intent = Intent(this, notificacion::class.java)
             // Iniciar la nueva actividad
             startActivity(intent)
         }
