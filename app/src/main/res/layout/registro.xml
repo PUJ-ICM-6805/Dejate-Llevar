@@ -122,13 +122,16 @@
         android:layout_width="263dp"
         android:layout_height="49dp"
         android:layout_marginTop="7dp"
+        android:textColor="#000000"
         android:background="@drawable/rounded_edittext_b"
         android:paddingLeft="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCalendario"
-        android:entries="@array/generos"/>
+        android:entries="@array/generos"
+        android:spinnerDropDownItemStyle="@style/generos"
+        />
 
 
     <EditText
@@ -152,7 +155,7 @@
         android:layout_marginTop="7dp"
         android:background="@drawable/rounded_edittext_b"
         android:hint="Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

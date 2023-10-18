@@ -6,27 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".Mapa">
 
+    <!-- Texto: Mover el mapa con la posición del usuario -->
+
+    <!-- Toggle -->
+
+    <!-- Barra de navegación personalizada -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Mover el mapa con la posición del usuario?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
-        android:layout_width="409dp"
-        android:layout_height="652dp"
-        app:cardCornerRadius="16dp"
+        android:id="@+id/customToolbarCardView"
+        android:layout_width="387dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_card_background"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        app:layout_constraintTop_toBottomOf="@id/toggleButton">
 
-        <ImageView
-            android:id="@+id/imageView17"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/imagenmapa" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="match_parent">
 
+            <EditText
+                android:id="@+id/editTextAddress"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:hint="Ingresa una dirección"
+                android:textColorHint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSearch"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.56" />
+
+            <ImageButton
+                android:id="@+id/buttonSearch"
+                android:layout_width="92dp"
+                android:layout_height="53dp"
+                android:src="@drawable/direction"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.478"
+                android:scaleType="fitCenter" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="378dp"
@@ -55,7 +111,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerInside"
                 android:src="@drawable/casa"
-                 />
+                />
 
 
             <!-- Imagen en el centro -->
@@ -79,4 +135,19 @@
                 app:tint="@color/white"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customToolbarCardView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
