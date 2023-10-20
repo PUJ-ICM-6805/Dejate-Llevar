@@ -151,10 +151,10 @@ class Categorias4Activity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent) {
         if (event.sensor.type == Sensor.TYPE_GYROSCOPE) {
             val x = event.values[0] // Valor en el eje X
-            if (x > 0.5) {
+            if (x > 0.8) {
                 // Mover a la derecha (dar like)
                 likeButton.performClick()
-            } else if (x < -0.5) {
+            } else if (x < -0.8) {
                 // Mover a la izquierda (dar dislike)
                 dislikeButton.performClick()
             }
