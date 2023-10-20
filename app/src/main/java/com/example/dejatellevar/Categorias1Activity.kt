@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.ListView
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Categorias1Activity : AppCompatActivity() {
 
@@ -15,6 +17,8 @@ class Categorias1Activity : AppCompatActivity() {
     private lateinit var imageView13: ImageView
     private lateinit var imageView16: ImageView
     private lateinit var imageView12: ImageView
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,18 +39,19 @@ class Categorias1Activity : AppCompatActivity() {
         imageView12 = findViewById(R.id.imageView12)
 
     }
+
     private fun initListeners() {
         imageView6.setOnClickListener {
-            // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias3Activity::class.java)
 
-            // Iniciar la nueva actividad
+            // Crear un Intent para abrir Categorias1 actividad
+            val intent = Intent(this, MainActivity2::class.java)
+
             startActivity(intent)
         }
 
         imageView10.setOnClickListener {
             // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias2Activity::class.java)
+            val intent = Intent(this, LugaresCategoria::class.java)
 
             // Iniciar la nueva actividad
             startActivity(intent)
@@ -54,7 +59,7 @@ class Categorias1Activity : AppCompatActivity() {
 
         imageView11.setOnClickListener {
             // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias2Activity::class.java)
+            val intent = Intent(this, LugaresCategoria::class.java)
 
             // Iniciar la nueva actividad
             startActivity(intent)
@@ -62,7 +67,7 @@ class Categorias1Activity : AppCompatActivity() {
 
         imageView13.setOnClickListener {
             // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias2Activity::class.java)
+            val intent = Intent(this, LugaresCategoria::class.java)
 
             // Iniciar la nueva actividad
             startActivity(intent)
@@ -70,18 +75,20 @@ class Categorias1Activity : AppCompatActivity() {
 
         imageView16.setOnClickListener {
             // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias2Activity::class.java)
+            val intent = Intent(this, LugaresCategoria::class.java)
 
             // Iniciar la nueva actividad
             startActivity(intent)
         }
         imageView12.setOnClickListener {
             // Crear un Intent para abrir Categorias1 actividad
-            val intent = Intent(this, Categorias3Activity::class.java)
+            val intent = Intent(this, MainActivity2::class.java)
 
-            // Iniciar la nueva actividad
             startActivity(intent)
         }
     }
+
+
+
 
 }

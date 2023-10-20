@@ -40,20 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // No necesitamos hacer nada antes de cambiar el texto
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // No necesitamos hacer nada cuando el texto cambia
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // Verificar si el campo de texto está vacío
                 if (s.isNullOrEmpty()) {
-                    // El campo de texto está vacío, muestra la imagen nuevamente
                     imageView2.visibility = View.VISIBLE
                 } else {
-                    // El campo de texto no está vacío, oculta la imagen
                     imageView2.visibility = View.GONE
                 }
             }
@@ -69,12 +64,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // Verificar si el campo de contraseña está vacío
                 if (s.isNullOrEmpty()) {
-                    // El campo de contraseña está vacío, muestra la imagen nuevamente
                     imageView3.visibility = View.VISIBLE
                 } else {
-                    // El campo de contraseña no está vacío, oculta la imagen
                     imageView3.visibility = View.GONE
                 }
             }
@@ -128,26 +120,17 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Autenticación exitosa, puedes redirigir al usuario a la siguiente actividad
                     val user: FirebaseUser? = auth.currentUser
-
                     Toast.makeText(this, ":) Bienvenido", Toast.LENGTH_SHORT).show()
-
-                    // Crear un Intent para abrir Categorias1 actividad
                     val intent = Intent(this, Categorias1Activity::class.java)
-                    // Iniciar la nueva actividad
                     startActivity(intent)
                 } else {
-                    // Autenticación fallida, muestra un mensaje de error al usuario
                     val errorMessage = task.exception?.message ?: "Error de inicio de sesión"
-
-                    // Verificar el tipo de error
                     if (errorMessage.contains("wrong password", ignoreCase = true)) {
                         textView11.text = "Contraseña inválida"
                     } else if (errorMessage.contains("no user record", ignoreCase = true)) {
                         textView11.text = "Usuario inválido"
                     } else {
-                        // En caso de otro tipo de error, muestra un mensaje genérico
                         textView11.text = "Error: Usuario inválido"
                     }
                     textView11.setTextColor(Color.RED)

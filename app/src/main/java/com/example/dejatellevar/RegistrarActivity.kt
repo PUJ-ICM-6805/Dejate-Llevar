@@ -13,7 +13,15 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.util.Calendar
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.initialize
+import java.text.SimpleDateFormat
+import java.util.Locale
+
 
 class RegistrarActivity : AppCompatActivity() {
 
@@ -67,13 +75,9 @@ class RegistrarActivity : AppCompatActivity() {
             Toast.makeText(this, ":) Ya estás en Registrar", Toast.LENGTH_SHORT).show()
         }
         loginButton.setOnClickListener {
-
-            // Crear un Intent para abrir la nueva actividad
             val intent = Intent(this, MainActivity::class.java)
 
-            // Iniciar la nueva actividad
             startActivity(intent)
-
         }
 
         registrarse.setOnClickListener {
@@ -85,7 +89,11 @@ class RegistrarActivity : AppCompatActivity() {
             val password = editTPassword.text.toString()
 
             if (camposRegistroValidos(nombre, fechaNacimiento, genero) && camposCredencialesValidos(email, password)) {
-                registrarUsuario(email, password)
+                if (esMayorDeEdad(fechaNacimiento)) {
+                    registrarUsuario(email, password, nombre, apellido, fechaNacimiento, genero)
+                } else {
+                    Toast.makeText(this, "Debes ser mayor de edad para registrarte", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
@@ -103,6 +111,22 @@ class RegistrarActivity : AppCompatActivity() {
             dpd.show()
         }
     }
+    private fun esMayorDeEdad(fechaNacimiento: String): Boolean {
+        val fechaNacimientoFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val fechaNacimientoDate = fechaNacimientoFormat.parse(fechaNacimiento)
+        val calendarNacimiento = Calendar.getInstance()
+        calendarNacimiento.time = fechaNacimientoDate
+
+        val calendarHoy = Calendar.getInstance()
+        var edad = calendarHoy.get(Calendar.YEAR) - calendarNacimiento.get(Calendar.YEAR)
+
+        if (calendarHoy.get(Calendar.DAY_OF_YEAR) < calendarNacimiento.get(Calendar.DAY_OF_YEAR)) {
+            edad--
+        }
+
+        val edadRequerida = 18
+        return edad >= edadRequerida
+    }
     private fun camposRegistroValidos(nombre: String,fechaNacimiento: String, genero: String): Boolean {
         if (nombre.isEmpty() || fechaNacimiento.isEmpty() || genero.isEmpty()) {
             Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
@@ -119,44 +143,85 @@ class RegistrarActivity : AppCompatActivity() {
             return false
         }
     }
-    private fun registrarUsuario(email: String, password: String) {
+    private fun registrarUsuario(email: String, password: String, nombre: String, apellido: String, fechaNacimiento: String, genero: String) {
         val auth = FirebaseAuth.getInstance()
-
-        // Verificar si el correo electrónico ya está asociado con una cuenta existente
         auth.fetchSignInMethodsForEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result
                     if (result != null && result.signInMethods?.isEmpty() == true) {
-                        // El correo electrónico no está asociado con ninguna cuenta, procede con el registro
                         auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(this) { registrationTask ->
                                 if (registrationTask.isSuccessful) {
-                                    // Registro exitoso
-                                    Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                                    // Crear un Intent para abrir la nueva actividad
-                                    val intent = Intent(this, MainActivity::class.java)
+                                    // Registro exitoso, guardar datos en Firestore
+                                    val user = Firebase.auth.currentUser
+                                    val uid = user?.uid
 
-                                    // Iniciar la nueva actividad
-                                    startActivity(intent)
+                                    val db = Firebase.firestore
+                                    val usuario = hashMapOf(
+                                        "idUsuario" to uid, // Se inicializa automáticamente con el UID del usuario
+                                        "nombre" to nombre,
+                                        "apellido" to apellido,
+                                        "fechaNacimiento" to fechaNacimiento,
+                                        "genero" to genero,
+                                        "email" to email,
+                                        "foto" to "", // Inicializar con una cadena vacía
+                                        "ubicacion" to hashMapOf("latitud" to "", "longitud" to ""), // Inicializar con latitud y longitud vacías
+                                        "preferencia" to "",
+                                        "historialReservas" to emptyList<String>(), // Inicializar como una lista vacía de cadenas
+                                        "favoritos" to emptyList<String>(), // Inicializar como una lista vacía de cadenas
+                                        "comentarios" to emptyList<String>(),
+                                        "estadoReservas" to false
+                                    )
+
+                                    if (uid != null) {
+                                        db.collection("usuarios")
+                                            .document(uid)
+                                            .set(usuario)
+                                            .addOnSuccessListener {
+                                                Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                                                // Crear un Intent para abrir la nueva actividad
+                                                val intent = Intent(this, MainActivity::class.java)
+                                                startActivity(intent)
+                                            }
+                                            .addOnFailureListener { e ->
+                                                Toast.makeText(this, "Error al guardar los datos en Firestore", Toast.LENGTH_SHORT).show()
+                                            }
+                                    }
                                 } else {
-                                    // Registro fallido, muestra un mensaje de error.
                                     val errorMessage = registrationTask.exception?.message
                                         ?: "Error al registrar el usuario"
                                     Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
                                 }
                             }
                     } else {
-                        // El correo electrónico ya está registrado, muestra un mensaje de error.
                         Toast.makeText(this, "El correo electrónico ya está registrado", Toast.LENGTH_SHORT).show()
+
                     }
                 } else {
-                    // Error al verificar el correo electrónico, muestra un mensaje de error.
                     val errorMessage = task.exception?.message ?: "Error al verificar el correo electrónico"
                     Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
                 }
             }
     }
+
+
+    private fun calcularEdad(fechaNacimiento: String): Int {
+        val fechaNacimientoFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val fechaNacimientoDate = fechaNacimientoFormat.parse(fechaNacimiento)
+        val calendarNacimiento = Calendar.getInstance()
+        calendarNacimiento.time = fechaNacimientoDate
+
+        val calendarHoy = Calendar.getInstance()
+        var edad = calendarHoy.get(Calendar.YEAR) - calendarNacimiento.get(Calendar.YEAR)
+
+        if (calendarHoy.get(Calendar.DAY_OF_YEAR) < calendarNacimiento.get(Calendar.DAY_OF_YEAR)) {
+            edad--
+        }
+
+        return edad
+    }
+
 
 
 }

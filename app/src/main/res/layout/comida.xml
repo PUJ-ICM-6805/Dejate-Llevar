@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Categorias3Activity">
 
-
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="349dp"
@@ -302,6 +301,4 @@
                 android:src="@drawable/mapa" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

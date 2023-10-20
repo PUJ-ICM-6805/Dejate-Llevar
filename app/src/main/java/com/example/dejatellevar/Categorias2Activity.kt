@@ -18,9 +18,6 @@ class Categorias2Activity : AppCompatActivity() {
     lateinit var mapaicono: ImageView
     lateinit var calendaIcono: ImageView
 
-    lateinit var calendarionavegacion: ImageView
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lugares)
@@ -38,9 +35,8 @@ class Categorias2Activity : AppCompatActivity() {
         arrow3ImageView = findViewById<AppCompatImageView>(R.id.arrow3)
         imageView7 = findViewById(R.id.imageView7)
         mapaicono = findViewById(R.id.mapaicono)
-        calendaIcono = findViewById(R.id.imageCalendario)
+        calendaIcono = findViewById(R.id.calendaicono)
 
-        calendarionavegacion = findViewById(R.id.calendarioicono)
     }
 
 
@@ -95,14 +91,6 @@ class Categorias2Activity : AppCompatActivity() {
 
         }
 
-        calendarionavegacion.setOnClickListener {
-            // Crear un Intent para abrir la nueva actividad
-
-            val intent = Intent(this, Reserva::class.java)
-
-            // Iniciar la nueva actividad
-            startActivity(intent)
-        }
 
         calendaIcono.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
