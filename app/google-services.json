@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "718644996236",
+    "project_id": "dejate-llevar-10f4e",
+    "storage_bucket": "dejate-llevar-10f4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718644996236:android:80b1ff3e04a030864db3a9",
+        "android_client_info": {
+          "package_name": "com.example.dejatellevar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMV5qa68tRWhf59hbnk6dhVUvvouOKpcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
