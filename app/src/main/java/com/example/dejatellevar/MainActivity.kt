@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -14,6 +15,10 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import androidx.biometric.BiometricPrompt.PromptInfo
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
+import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
@@ -29,12 +34,45 @@ class MainActivity : AppCompatActivity() {
     lateinit var textView2: TextView
     lateinit var textView11: TextView
     private lateinit var auth: FirebaseAuth
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         initComponents()
+        executor = ContextCompat.getMainExecutor(this)
+        biometricPrompt = BiometricPrompt(this, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    // Maneja el error de autenticación
+                }
+
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    Log.d("BiometricAuth", "onAuthenticationSucceeded called")
+                    Toast.makeText(this@MainActivity, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@MainActivity, InicioTikTok::class.java)
+                    startActivity(intent)
+                }
+
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    // La autenticación falló, maneja el error aquí
+                    Toast.makeText(this@MainActivity, "La autenticación ha fallado", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+        promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Autenticación biométrica")
+            .setSubtitle("Confirma tu identidad con tu huella dactilar")
+            .setNegativeButtonText("Cancelar")
+            .build()
         initListeners()
         auth = FirebaseAuth.getInstance()
 
@@ -109,10 +147,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, ingresa un correo y una contraseña válidos", Toast.LENGTH_SHORT).show()
             }
         }
-
         imageView4.setOnClickListener {
-            val intent = Intent(this, InicioTikTok::class.java)
-            startActivity(intent)
+            biometricPrompt.authenticate(promptInfo)
         }
     }
 
