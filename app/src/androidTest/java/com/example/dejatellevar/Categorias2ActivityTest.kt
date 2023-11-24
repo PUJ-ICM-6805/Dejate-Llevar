@@ -22,7 +22,7 @@ class Categorias2ActivityTest {
             .perform(ViewActions.click())
 
         // Verificar que la navegación a Categorias4Activity se haya realizado correctamente
-        Espresso.onView(ViewMatchers.withId(R.id.imageView9))
+        Espresso.onView(ViewMatchers.withId(R.id.arrow1))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
@@ -44,7 +44,7 @@ class Categorias2ActivityTest {
             .perform(ViewActions.click())
 
         // Verificar que la navegación a Categorias4Activity se haya realizado correctamente
-        Espresso.onView(ViewMatchers.withId(R.id.imageView9))
+        Espresso.onView(ViewMatchers.withId(R.id.arrow1))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
