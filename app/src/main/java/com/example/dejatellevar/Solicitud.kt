@@ -8,7 +8,7 @@ data class Solicitud (
     val fecha: Date,
     val valor: String,
     val estilo: String,
-    val status: Boolean = false
+    var status: Boolean = false
 )
 
 

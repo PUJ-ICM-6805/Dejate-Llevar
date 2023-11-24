@@ -15,17 +15,11 @@ class SolicitudesTikTokerActivity :  AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tiktoker_solicitudes)
 
-        solicitudesListview = findViewById(R.id.SolicitudesListview)
+        val listView: ListView = findViewById(R.id.SolicitudesListview)
+        val solicitudList: List<Solicitud> = SolicitudHolder.solicitudList ?: emptyList()
 
-        if(SolicitudHolder.solicitudList != null){
-
-            val adapter = ArrayAdapter(
-                this,
-                android.R.layout.simple_list_item_1,
-                SolicitudHolder.solicitudList!!
-            )
-            solicitudesListview.adapter = adapter
-        }
+        val adapter = SolicitudAdapter(this, R.layout.activity_solicitud_adapter, solicitudList)
+        listView.adapter = adapter
 
     }
 }

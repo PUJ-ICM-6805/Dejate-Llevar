@@ -83,9 +83,6 @@ class ContratoEmpActivity : AppCompatActivity() {
                 SolicitudHolder.solicitudList?.add(solicitud)
                 Toast.makeText(this, "Solicitud creada correctamente", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, InicioTikTok::class.java)
-                startActivity(intent)
-
             }catch(e: Exception){
                 e.printStackTrace()
                 Toast.makeText(this, "Error al crear la solicitud", Toast.LENGTH_SHORT).show()
