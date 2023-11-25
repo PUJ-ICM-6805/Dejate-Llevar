@@ -2,19 +2,16 @@ package com.example.dejatellevar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.content.Intent
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatImageView
+
 import androidx.viewpager2.widget.ViewPager2
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
-import com.bumptech.glide.Glide
-import com.example.dejatellevar.R
+
 import org.json.JSONArray
 import org.json.JSONObject
 
