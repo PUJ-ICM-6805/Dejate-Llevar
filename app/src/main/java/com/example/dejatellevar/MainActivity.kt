@@ -19,6 +19,8 @@ import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import java.util.concurrent.Executor
+import com.google.firebase.firestore.FirebaseFirestore
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
@@ -154,7 +156,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         empresa.setOnClickListener {
-            val intent = Intent(this, InicioTikTok::class.java)
+            val intent = Intent(this, login_empresa::class.java)
             startActivity(intent)
         }
     }
@@ -163,22 +165,85 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    // Usuario ha iniciado sesión con éxito
                     val user: FirebaseUser? = auth.currentUser
                     Toast.makeText(this, ":) Bienvenido", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, Categorias1Activity::class.java)
-                    startActivity(intent)
-                } else {
-                    val errorMessage = task.exception?.message ?: "Error de inicio de sesión"
-                    if (errorMessage.contains("wrong password", ignoreCase = true)) {
-                        textView11.text = "Contraseña inválida"
-                    } else if (errorMessage.contains("no user record", ignoreCase = true)) {
-                        textView11.text = "Usuario inválido"
-                    } else {
-                        textView11.text = "Error: Usuario inválido"
+
+                    // Obtener información del usuario
+                    user?.let {
+                        obtenerInformacionUsuario(it.uid, object : UsuarioJsonCallback {
+                            override fun onCallback(json: String?) {
+                                if (json != null) {
+                                    // si el rol es cliente
+                                    if (JSONObject(json).getString("rol") == "cliente") {
+                                        val intent = Intent(this@MainActivity, Categorias1Activity::class.java)
+                                        // pasar el id del usuario
+                                        startActivity(intent)
+                                    }
+                                    else if (JSONObject(json).getString("rol") == "tiktok") {
+                                        val intent = Intent(this@MainActivity, InicioTikTok::class.java)
+                                        intent.putExtra("usuarioID", it.uid)
+                                        Toast.makeText(this@MainActivity, "usuarioID: ${it.uid}", Toast.LENGTH_SHORT).show()
+                                        startActivity(intent)
+                                    }
+                                    else if (JSONObject(json).getString("rol") == "empresa") {
+                                        val intent = Intent(this@MainActivity, login_empresa::class.java)
+                                        startActivity(intent)
+                                    }
+
+                                    else {
+                                        Toast.makeText(this@MainActivity, "No tiene permisos", Toast.LENGTH_SHORT).show()
+                                    }
+                                } else {
+                                    Toast.makeText(this@MainActivity, "Error al obtener información del usuario", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        })
                     }
-                    textView11.setTextColor(Color.RED)
+
+
+                } else {
+                    // Manejar errores de inicio de sesión
+                    manejarErroresInicioSesion(task.exception)
                 }
             }
+    }
+
+    private fun obtenerInformacionUsuario(uid: String, callback: UsuarioJsonCallback) {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("usuarios").document(uid).get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val json = JSONObject(document.data).toString()
+                    callback.onCallback(json)
+                } else {
+                    Log.d("LoginActivity", "No such document")
+                    callback.onCallback(null)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("LoginActivity", "get failed with ", exception)
+                callback.onCallback(null)
+            }
+    }
+
+
+    interface UsuarioJsonCallback {
+        fun onCallback(json: String?)
+    }
+
+
+
+    private fun manejarErroresInicioSesion(exception: Exception?) {
+        val errorMessage = exception?.message ?: "Error de inicio de sesión"
+        if (errorMessage.contains("wrong password", ignoreCase = true)) {
+            textView11.text = "Contraseña inválida"
+        } else if (errorMessage.contains("no user record", ignoreCase = true)) {
+            textView11.text = "Usuario inválido"
+        } else {
+            textView11.text = "Error: Usuario inválido"
+        }
+        textView11.setTextColor(Color.RED)
     }
 
 }

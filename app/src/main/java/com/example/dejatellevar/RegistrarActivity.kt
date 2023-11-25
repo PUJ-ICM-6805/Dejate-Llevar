@@ -171,7 +171,8 @@ class RegistrarActivity : AppCompatActivity() {
                                         "historialReservas" to emptyList<String>(), // Inicializar como una lista vacía de cadenas
                                         "favoritos" to emptyList<String>(), // Inicializar como una lista vacía de cadenas
                                         "comentarios" to emptyList<String>(),
-                                        "estadoReservas" to false
+                                        "estadoReservas" to false,
+                                        "rol" to "empresa",
                                     )
 
                                     if (uid != null) {

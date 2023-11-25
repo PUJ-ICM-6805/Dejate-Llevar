@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 
 import androidx.viewpager2.widget.ViewPager2
 import com.android.volley.Request
@@ -27,6 +28,8 @@ class InicioTikTok : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_tik_tok)
+
+
 
         initComponents()
         initListeners()
@@ -83,7 +86,7 @@ class InicioTikTok : AppCompatActivity() {
 
     fun initComponents(){
         // identificar id de una imagen botton
-        contratoact = findViewById(R.id.contratos)
+        contratoact = findViewById(R.id.contratos2)
         historialTikTok = findViewById(R.id.historial)
         creeps = findViewById(R.id.creeps)
         notifica = findViewById(R.id.imageView19)
@@ -119,9 +122,23 @@ class InicioTikTok : AppCompatActivity() {
 
         notifica.setOnClickListener {
             // Crear un Intent para abrir la nueva actividad
-            val intent = Intent(this, notificacion::class.java)
-            // Iniciar la nueva actividad
-            startActivity(intent)
+            val intent2 = Intent(this, notificacion::class.java)
+            // conseguir el id del usuario
+
+            // Obtener el usuarioID enviado desde la actividad de login
+            val usuarioID = intent.getStringExtra("usuarioID")
+            // Verificar que el usuarioID no sea nulo
+            if (usuarioID != null) {
+                // Enviar el usuarioID a la actividad de notificaciones
+                intent2.putExtra("usuarioID", usuarioID)
+                // Iniciar la nueva actividad
+                startActivity(intent2)
+            } else {
+                // Si el usuarioID es nulo, mostrar un mensaje de error
+                Toast.makeText(this, "Error al obtener el usuarioID", Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 
