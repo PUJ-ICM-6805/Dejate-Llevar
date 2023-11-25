@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.light" />
+
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DejateLlevar"
+        tools:targetApi="31" >
+        <activity
+            android:name=".ChatMensaje"
+            android:exported="false" />
+        <activity
+            android:name=".login_empresa"
+            android:exported="false" />
+        <activity
+            android:name=".TiktokerAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ServicioLugaresAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".LugaresCategoria"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ServicioAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ReservaE"
+            android:exported="false" />
+        <activity
+            android:name=".notificacion"
+            android:exported="false" />
+        <activity
+            android:name=".Contratoact2"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialAyuda"
+            android:exported="false" />
+        <activity
+            android:name=".agregarProduct"
+            android:exported="false" />
+        <activity
+            android:name=".Pagar"
+            android:exported="false" />
+        <activity
+            android:name=".Reserva"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialTikTok"
+            android:exported="false"
+            android:label="@string/title_activity_historial_tik_tok"
+            android:theme="@style/Theme.DejateLlevar" />
+        <activity
+            android:name=".Chat"
+            android:exported="false" />
+        <activity
+            android:name=".historial"
+            android:exported="false"
+            android:label="@string/title_activity_historial"
+            android:theme="@style/Theme.DejateLlevar" />
+        <activity
+            android:name=".InicioTikTok"
+            android:exported="false" />
+        <activity
+            android:name=".Mapa"
+            android:exported="false" />
+        <activity
+            android:name=".perfilUsuario.Categorias4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarTarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".ContratoEmpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

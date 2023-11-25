@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contratoact">
+
+    <TextView
+        android:id="@+id/contratoTexto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:padding="12dp"
+        android:text="contrato con empresa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contratoToolbar" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/contratoToolbar"
+        android:layout_width="432dp"
+        android:layout_height="63dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/contratoTexto"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-4dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/back"
+        app:layout_constraintEnd_toEndOf="@id/contratoToolbar"
+        app:layout_constraintTop_toTopOf="@id/contratoToolbar" />
+
+    <EditText
+        android:id="@+id/editNombreContrato"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contratoTexto" />
+
+    <EditText
+        android:id="@+id/editTiktokContrato"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:ems="10"
+        android:hint="Link Tik Tok"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editBudgetContrato" />
+
+    <EditText
+        android:id="@+id/editNitContrato"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:ems="10"
+        android:hint="Nit"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editNombreContrato" />
+
+    <EditText
+        android:id="@+id/editBudgetContrato"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:ems="10"
+        android:hint="Presupuesto"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editNitContrato" />
+
+    <ImageView
+        android:id="@+id/cameraImage"
+        android:layout_width="148dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTiktokContrato"
+        tools:srcCompat="@drawable/camera" />
+
+    <Spinner
+        android:id="@+id/DuracionSpinner"
+        android:layout_width="335dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cameraImage" />
+
+    <EditText
+        android:id="@+id/editCelular"
+        android:layout_width="335dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext_b"
+        android:ems="10"
+        android:hint="Numero celular"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DuracionSpinner" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/addcontact"
+        app:layout_constraintEnd_toEndOf="@id/editCelular"
+        app:layout_constraintTop_toTopOf="@id/editCelular" />
+
+    <Button
+        android:id="@+id/generarContrato"
+        android:layout_width="335dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="64dp"
+        android:text="Generar el contrato"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editCelular" />
+
+    <ImageView
+        android:id="@+id/tiktokerIcon"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/contratoToolbar"
+        app:layout_constraintStart_toStartOf="@id/contratoToolbar"
+        app:layout_constraintTop_toTopOf="@id/contratoToolbar"
+        app:layout_constraintVertical_bias="0.761"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

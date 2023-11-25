@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/productosTexto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:padding="12dp"
+        android:text="añadir productos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productosToolbar" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/productosToolbar"
+        android:layout_width="432dp"
+        android:layout_height="63dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/productosTexto"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-4dp"/>
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="@id/productosToolbar"
+        app:layout_constraintTop_toTopOf="@id/productosToolbar"
+        />
+
+    <ImageView
+        android:id="@+id/tiktokerIcon"
+        android:layout_width="38dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/productosToolbar"
+        app:layout_constraintStart_toStartOf="@id/productosToolbar"
+        app:layout_constraintTop_toTopOf="@id/productosToolbar"
+        app:layout_constraintVertical_bias="0.761"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.cardview.widget.CardView android:id="@+id/Cardagregar"
+        android:layout_width="379dp"
+        android:layout_height="233dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productosTexto">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="313dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext_b"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.171"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="83dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editTiktok"
+                app:srcCompat="@drawable/camera" />
+
+            <EditText
+                android:id="@+id/editTiktok"
+                android:layout_width="313dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext_b"
+                android:ems="10"
+                android:hint="Link tik tok"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.181"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editValor" />
+
+            <EditText
+                android:id="@+id/editValor"
+                android:layout_width="313dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_edittext_b"
+                android:ems="10"
+                android:hint="Valor"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.181"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editName" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
+                android:layout_marginBottom="8dp"
+                android:text="Añadir otro producto"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageView5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="272dp"
+        android:text="Terminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Cardagregar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

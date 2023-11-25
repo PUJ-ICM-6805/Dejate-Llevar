@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/previousFromNewCard"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Nueva Tarjeta"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/previousFromNewCard"
+        app:layout_constraintStart_toEndOf="@+id/previousFromNewCard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
+
+    <ImageView
+        android:id="@+id/bannerImage"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/addcard"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        android:layout_marginTop="22dp"/>
+
+    <!--<TextView
+        android:id="@+id/nombreTarjetaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Tarjeta"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerImage"
+        android:layout_marginTop="10dp"/>-->
+    <EditText
+        android:id="@+id/nombreTarjetaEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nombre de la tarjeta"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerImage"
+        android:layout_marginTop="15dp"/>
+    <!--<TextView
+        android:id="@+id/numeroTarjetaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Tarjeta"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerImage"
+        android:layout_marginTop="10dp"/>-->
+    <EditText
+        android:id="@+id/numeroTarjetaEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Numero de la tarjeta"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreTarjetaEditText"
+        android:layout_marginTop="15dp"/>
+
+    <LinearLayout
+        android:id="@+id/expirationCvvLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numeroTarjetaEditText"
+        android:layout_marginTop="15dp">
+
+        <EditText
+            android:id="@+id/txtfechaExpiracion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Fecha de Venc."
+            android:onClick="abrirCalendario"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="12dp"
+            android:background="@drawable/rounded_edittext_b"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/cvvEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="CVV"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="12dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_edittext_b"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/contrasenaEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña (opcional)"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="12dp"
+        android:background="@drawable/rounded_edittext_b"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expirationCvvLayout"
+        android:layout_marginTop="15dp"/>
+
+    <ImageButton
+        android:id="@+id/imageEyePassword"
+        android:layout_width="34dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="6dp"
+        android:backgroundTint="@color/white"
+        android:onClick="changeEye"
+        android:scaleType="center"
+        android:src="@drawable/eyeopen"
+        app:layout_constraintBottom_toBottomOf="@+id/contrasenaEditText"
+        app:layout_constraintEnd_toEndOf="@+id/contrasenaEditText" />
+
+    <Button
+        android:id="@+id/agregarButton"
+        android:layout_width="330dp"
+        android:layout_height="80dp"
+        android:text="Agregar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contrasenaEditText"
+        android:layout_marginTop="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
