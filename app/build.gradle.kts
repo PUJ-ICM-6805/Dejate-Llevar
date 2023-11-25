@@ -68,6 +68,6 @@ dependencies {
     implementation("androidx.biometric:biometric:1.2.0-alpha05")
     implementation("androidx.biometric:biometric:1.2.0-alpha05")
     implementation ("com.itextpdf:itextg:5.5.10")
-
-
+    implementation ("androidx.viewpager2:viewpager2:1.0.")
+    implementation("com.android.volley:volley:1.2.1")
 }
