@@ -23,8 +23,13 @@ import com.itextpdf.text.Document
 import com.itextpdf.text.Paragraph
 import com.itextpdf.text.pdf.PdfWriter
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 
 class Contratoact2 : AppCompatActivity() {
@@ -237,6 +242,26 @@ class Contratoact2 : AppCompatActivity() {
             document.add(Paragraph(legalText, fontContent))
 
             document.close()
+
+            // Mostrar notificación de generación de contrato exitoso
+            val channelId = "mi_canal_notificaciones"
+            val channelName = "Notificaciones de contratos"
+            val notificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val channel =
+                    NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+                notificationManager.createNotificationChannel(channel)
+            }
+
+            val notificationBuilder = NotificationCompat.Builder(this@Contratoact2, channelId)
+                .setSmallIcon(R.drawable.notificacion)
+                .setContentTitle("Generación de Contrato Exitosa")
+                .setContentText("El contrato se ha generado exitosamente.")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+            notificationManager.notify(1, notificationBuilder.build())
 
             Toast.makeText(this, "PDF creado y guardado", Toast.LENGTH_LONG).show()
         } catch (e: Exception) {

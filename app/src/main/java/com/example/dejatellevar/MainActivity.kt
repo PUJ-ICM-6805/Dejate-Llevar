@@ -1,7 +1,11 @@
 package com.example.dejatellevar
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -17,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.biometric.BiometricPrompt
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import java.util.concurrent.Executor
 import com.google.firebase.firestore.FirebaseFirestore
@@ -59,9 +64,30 @@ class MainActivity : AppCompatActivity() {
                     super.onAuthenticationSucceeded(result)
                     Log.d("BiometricAuth", "onAuthenticationSucceeded called")
                     Toast.makeText(this@MainActivity, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+
+                    // Añadir notificación
+                    val channelId = "mi_canal_notificaciones"
+                    val channelName = "Notificaciones de inicio de sesión"
+
+                    val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        val channel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT)
+                        notificationManager.createNotificationChannel(channel)
+                    }
+
+                    val notificationBuilder = NotificationCompat.Builder(this@MainActivity, channelId)
+                        .setSmallIcon(R.drawable.notificacion)
+                        .setContentTitle("Inicio de sesión exitoso")
+                        .setContentText("¡Bienvenido de nuevo!")
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+                    notificationManager.notify(1, notificationBuilder.build())
+
                     val intent = Intent(this@MainActivity, InicioTikTok::class.java)
                     startActivity(intent)
                 }
+
 
 
                 override fun onAuthenticationFailed() {
