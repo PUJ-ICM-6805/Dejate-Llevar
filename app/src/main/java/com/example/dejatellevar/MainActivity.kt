@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var textView: TextView
     lateinit var textView2: TextView
     lateinit var textView11: TextView
+    lateinit var empresa: ImageView
     private lateinit var auth: FirebaseAuth
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
@@ -125,6 +126,7 @@ class MainActivity : AppCompatActivity() {
         textView = findViewById(R.id.textView)
         textView2 = findViewById(R.id.textView2)
         textView11 = findViewById(R.id.textView11)
+        empresa = findViewById(R.id.empresa)
     }
 
     private fun initListeners() {
@@ -149,6 +151,11 @@ class MainActivity : AppCompatActivity() {
         }
         imageView4.setOnClickListener {
             biometricPrompt.authenticate(promptInfo)
+        }
+
+        empresa.setOnClickListener {
+            val intent = Intent(this, InicioTikTok::class.java)
+            startActivity(intent)
         }
     }
 

@@ -41,7 +41,6 @@ class Contratoact2 : AppCompatActivity() {
     // declarar un boton
     private lateinit var btnIngresar: Button
 
-    private lateinit var btnSolicitudes: Button
 
     private lateinit var createFileLauncher: ActivityResultLauncher<Intent>
 
@@ -141,7 +140,6 @@ class Contratoact2 : AppCompatActivity() {
         editCelular = findViewById(R.id.editCelular)
         btnIngresar = findViewById(R.id.generarContrato)
         contactos = findViewById(R.id.imageView14)
-        btnSolicitudes = findViewById(R.id.solicitudBtn)
     }
 
     private fun initListeners() {
@@ -171,9 +169,6 @@ class Contratoact2 : AppCompatActivity() {
             }
         }
 
-        btnSolicitudes.setOnClickListener{
-
-        }
 
 
     }
